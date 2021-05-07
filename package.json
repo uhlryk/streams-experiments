@@ -1,0 +1,19 @@
+{
+  "name": "streams-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "custom_read_stream_control.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uhlryk/streams-experiments.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uhlryk/streams-experiments/issues"
+  },
+  "homepage": "https://github.com/uhlryk/streams-experiments#readme"
+}
