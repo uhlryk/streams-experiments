@@ -6,7 +6,11 @@ module.exports = class CustomWritableStream extends Writable {
     this.numChunks = 0;
   }
   _write(chunk, encoding, callback) {
-    console.log(`===Got chunk ${this.numChunks++}===`);
-    console.log(data.toString("ascii"));
+    if (chunk) {
+      console.log(`===Got chunk ${this.numChunks++}===`);
+      console.log(chunk.toString("ascii"));
+    } else {
+        console.log(`===no chunks===`);
+    }
   }
 };

@@ -53,3 +53,33 @@ If we remove all listeners and just after it we invoke pause and add 'data' list
 ```javascript
 node paused/emitSomeChunksAndControlPushes.js
 ```
+
+## More complex flow of pure streams
+
+### 1.
+
+Read stream is paused and then pipeline is created with this stream. This changes paused stream to flowing stream. Read method was not executed. 
+
+```javascript
+node complex/pauseBeforePipeline.js
+```
+
+### 2.
+
+Read stream is piped first and then paused. Now it works as correct paused stream. Read method was not executed. No chunks.
+
+```javascript
+node complex/pauseAfterPipelineNoRead.js
+```
+
+### 3.
+
+Read stream is piped first and then paused. Now it works as correct paused stream. Read method was executed. One chunk write.
+
+```javascript
+node complex/pauseAfterPipeline.js
+```
+
+> NOTE:
+
+> PAUSE STREAM AFTER PIPING NOT IN THE MIDDLE 
