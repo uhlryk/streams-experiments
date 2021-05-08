@@ -1,12 +1,19 @@
 # streams-experiments
 
 
-## Custom readable stream
+## Helper classes
+
+### Custom readable stream
 
 Basic readable stream which reads counted sample strings. 
 
-Code is in file `createReadableStream.js`
+Code is in file `CustomReadableStream.js`
 
+### Custom writable steam
+
+Basic writable stream which console log and count received chunks
+
+Code in file 
 
 ## A few examples of custom readable stream in paused mode
 
@@ -26,6 +33,11 @@ readable stream is waiting for first 'read' before it starts generating data
 node paused/emitOnlyOneChunk.js
 ```
 
+Without 'data' event but with writable stream
+
+```javascript
+emitOnlyOneChunkWithPipe.js`
+```
 ### 3.
 
 When we have multiple read actions, then  chunk from event 'data' from first action contains only first pushed sample. But next events contains multiple samples. This shows that readable stream is not waiting with generating data for next read actions but it is doing this all the time. We control when next chunk is emitted but no how data is genarated.
@@ -33,7 +45,6 @@ When we have multiple read actions, then  chunk from event 'data' from first act
 ```javascript
 node paused/emitSomeChunks.js
 ```
-
 ### 4. 
 
 If we remove all listeners and just after it we invoke pause and add 'data' listener again. It shows specific behavior: each new 'data' listener gets imediately event with chunk that contains one new generated sample. 

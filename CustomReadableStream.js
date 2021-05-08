@@ -1,4 +1,4 @@
-const { Readable, finished } = require("stream");
+const { Readable } = require("stream");
 
 module.exports = class CustomReadableStream extends Readable {
   constructor(options) {

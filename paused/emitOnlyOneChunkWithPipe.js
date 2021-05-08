@@ -1,15 +1,10 @@
 const CustomReadableStream = require("../CustomReadableStream");
+const CustomWritableStream = require("../CustomWritableStream");
 
 const readable = new CustomReadableStream();
+const writable = new CustomWritableStream();
 readable.pause();
-
-let numChunks = 0;
-
-readable.on("data", (data) => {
-  console.log(`===Got chunk ${numChunks++}===`);
-  console.log(data.toString("ascii"));
-});
-
+readable.pipe(writable);
 console.log("Start timeout");
 setTimeout(() => {
   console.log("time passed send one chunk");

@@ -1,6 +1,6 @@
-const createReadableStream = require("../createReadableStream");
+const CustomReadableStream = require("../CustomReadableStream");
 
-const readable = createReadableStream();
+const readable = new CustomReadableStream();
 readable.pause();
 
 let numChunks = 0;
