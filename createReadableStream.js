@@ -1,13 +1,8 @@
-const { Readable, finished } = require("stream");
-const stream = require("stream");
+const { finished } = require("stream");
+const CustomReadableStream = require("./CustomReadableStream");
 
 module.exports = function createReadableStream() {
-  let numReads = 0;
-  const readable = new stream.Readable({
-    read() {
-      this.push(` test_read_${numReads++} `);
-    },
-  });
+  const readable = new CustomReadableStream();
   finished(readable, (err) => {
     if (err) {
       console.error("Stream encounter error", err);
